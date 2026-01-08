@@ -15,7 +15,7 @@ load_dotenv()
 langfuse = get_client()
 
 
-# 2. Create OpenAI Agent using the credentials for de model gateway
+# 2. Create OpenAI Agent using the credentials for the model gateway
 agent = ChatOpenAI(model=os.getenv("MG_MODEL"),
                    base_url=os.getenv("MG_BASE_URL"),
                    api_key=os.getenv("MG_API_KEY"),
