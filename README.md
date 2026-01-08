@@ -18,8 +18,13 @@ source venv/bin/activate
 # Upgrade pip
 pip install --upgrade pip
 
+# Install model provider dependencies depending on your AI provider
+pip install --pre -U langchain-openai
+# or
+pip install --pre -U langchain-anthropic
+
 # Install dependencies
-pip install --pre -U langfuse langchain-openai python-dotenv
+pip install --pre -U langfuse python-dotenv
 ```
 
 
@@ -37,10 +42,10 @@ Environment variables are loaded from a `.env` file using `python-dotenv`.
 touch .env
 cat <<EOF >> .env
 
-MG_MODEL=<your-openai-model>
-MG_BASE_URL=<your-openai-model-gateway>
-MG_API_KEY=<your-open-ai-model-gateway-api-key>
-USER=<your-openai-model-gateway-user>
+MG_MODEL=<your-model>
+MODEL_PROVIDER=<your-model-provider>
+MG_BASE_URL=<your-model-gateway>
+MG_API_KEY=<your-model-gateway-api-key>
 
 LANGFUSE_SECRET_KEY=<your-langfuse-secret-key>
 LANGFUSE_PUBLIC_KEY=<your-langfuse-public-key>

@@ -3,7 +3,7 @@
 import os
 
 from dotenv import load_dotenv
-from langchain_openai import ChatOpenAI
+from langchain.chat_models import init_chat_model
 from langfuse import get_client, observe
 
 
@@ -15,11 +15,11 @@ load_dotenv()
 langfuse = get_client()
 
 
-# 2. Create OpenAI Agent using the credentials for the model gateway
-agent = ChatOpenAI(model=os.getenv("MG_MODEL"),
-                   base_url=os.getenv("MG_BASE_URL"),
-                   api_key=os.getenv("MG_API_KEY"),
-                   user=os.getenv("USER"))
+# 2. Create Agent using the credentials for the model gateway
+agent = init_chat_model(model=os.getenv("MG_MODEL"),
+                        model_provider=os.getenv("MODEL_PROVIDER"),
+                        base_url=os.getenv("MG_BASE_URL"),
+                        api_key=os.getenv("MG_API_KEY"))
 
 
 # 3. Invoke the agent
