@@ -24,7 +24,7 @@ pip install --pre -U langchain-openai
 pip install --pre -U langchain-anthropic
 
 # Install dependencies
-pip install --pre -U langfuse python-dotenv
+pip install --pre -U langchain langfuse python-dotenv
 ```
 
 
